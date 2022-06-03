@@ -1,0 +1,36 @@
+.icon {
+  width: 20px;
+  text-align: center;
+  // background-color: white; // fica melhor aplicado ao componente :host, já que aplica tanto ao icon quanto ao input
+  padding-left: 5px;
+  padding-right: 2px;
+}
+
+/*
+A propriedade :host se reflete diretamente no elemento que acomoda, neste caso, no au-fa-input, perceba que envolve o ícone e o input, que estão dentro do au-fa-input 
+*/
+:host {
+  background-color: white;
+  border: 1px solid lightgray; // mude para red para verificar
+  padding: 1px;
+}
+
+/*
+o ::ng-deep sozinho criará um estilo como se fosse na raiz do projeto, então, aplicará para todas aquelas classes ou tags do projeto inteiro.
+
+Combinado com o :host, é possível isolar
+*/
+:host ::ng-deep input {
+  border: none;
+  outline: none;
+  height: 100%;
+  box-sizing: border-box; // border box significa que a altura vai incluir o conteúdo e o padding, mas não a borda, e por isso fazemos a margem de 1px em cima e embaixo
+  margin: 1px 0;
+}
+
+:host(.input-focus) {
+  outline: none;
+  -webkit-box-shadow: 0 0 5px #4D90FE;
+  box-shadow: 0 0 5px red;
+  border: 1px solid #4D90FE;
+}

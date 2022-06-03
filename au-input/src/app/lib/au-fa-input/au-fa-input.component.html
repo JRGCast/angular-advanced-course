@@ -1,2 +1,8 @@
-<i [ngClass]="classes"></i>
-<input class="normal-input" type="email" name="email" placeholder="E-mail">
+<i class="icon" [ngClass]="classes"></i>
+<!-- Para evitar eventuais duplicações (ex.: declarar um name dentro do au-fa-input, que poderia acontecer aqui também, gerando inconsistências, ou mesmo o uso do formControl, passamos a diretiva ng-content para dentro do au-fa-input e declaramos o conteúdo que usaremos lá no componente pai mesmo) -->
+<!-- Estávamos usando:
+  <input class="normal-input" type="email" name="email" placeholder="E-mail"> 
+E perceba que os estilos ficaram todo cagados com essa mudança. Isso acontece porque o angular cria a classe ng_content-c0 quando utilizamos o ng-content, que é diferente da classe ng_content-c1, esta possível ver lá no inspecionar elemento no browser, inclusive mais visível dentro de 'styles', no browser, como input[_ngcontent-yul-c0].
+Esse é um 'mecanismo de segurança' para que os estilos dos componentes se mantenham, então cria o c0, c1, c2 e etc, para que não sejam overwritten. Mas é possível sobrescrevê-los com o ng-deep
+-->
+<ng-content></ng-content>

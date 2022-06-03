@@ -1,0 +1,16 @@
+// o host-context é para aplicar determinada estilização a um componente utilizando um determinado parâmetro, ou seja, é possível utilizar determinadas estilizações a um mesmo componente, aplicando o contexto ao :host. Adiciona-se o parametro como classe ao elemento pai.
+
+$border-color: red;
+
+:host-context(.au-fa-input-red-theme) {
+  border-color: $border-color;
+
+  &.input-focus {
+    -webkit-box-shadow: 0 0 5px $border-color;
+    box-shadow: 0 0 5px $border-color;
+  }
+}
+
+// :host-context(.au-fa-input-green-theme) {
+//   border-color: green;
+// }
